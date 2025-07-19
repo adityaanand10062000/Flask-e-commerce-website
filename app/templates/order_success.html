@@ -1,0 +1,21 @@
+<!-- app/templates/order_success.html -->
+{% extends "base.html" %}
+
+{% block header %}
+    Thank You For Your Order!
+{% endblock %}
+
+{% block content %}
+<div class="text-center bg-white p-10 rounded-lg shadow-lg">
+    <svg class="mx-auto h-16 w-16 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+    </svg>
+    <h3 class="mt-4 text-2xl font-bold text-gray-900">Order Placed Successfully</h3>
+    <p class="mt-2 text-base text-gray-600">We have received your order and are getting it ready for you. A confirmation email will be sent shortly.</p>
+    <div class="mt-8">
+        <a href="{{ url_for('main.index') }}" class="inline-flex items-center rounded-md bg-indigo-600 px-4 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500">
+            ← Continue Shopping
+        </a>
+    </div>
+</div>
+{% endblock %}
