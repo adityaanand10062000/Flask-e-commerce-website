@@ -5,6 +5,7 @@ from app import db
 from app.models import Product, User, Order, OrderItem
 from app.forms import RegistrationForm, LoginForm
 from flask import request
+from sqlalchemy import desc
 
 bp = Blueprint('main', __name__)
 
@@ -20,7 +21,7 @@ def index():
         products = Product.query.filter(Product.name.ilike(f'%{query}%')).all()
     else:
         # If there is no search query, show all products
-        products = Product.query.all()
+        products = Product.query.order_by(desc(Product.id)).all()
         
     # Pass the products and the query string to the template
     return render_template('index.html', title='Home', products=products, query=query)
